@@ -1,0 +1,216 @@
+/* Existing styles can remain here */
+
+/* Landing Page Styles */
+.landing-page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: fill;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: black; /* Initial background color */
+  
+}
+
+.balloons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.balloon-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0;
+  
+}
+
+.balloon {
+  width: 50px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0)), 
+              var(--balloon-color);
+  position: relative;
+}
+
+.string {
+  width: 2px;
+  height: 50px;
+  background-color: transparent;
+  position: absolute;
+  top: 70px;
+}
+
+.string svg {
+  width: 2px;
+  height: 75px;
+}
+
+.string path {
+  stroke: gray;
+  fill: #000;
+  stroke-width: 9;
+}
+
+.letters {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.letter {
+  font-size: 5rem;
+  font-weight: bold;
+  margin: 0.2rem;
+  color: #ff69b4;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  animation: flash 1.5s infinite;
+}
+
+@keyframes flash {
+  0%, 100% {
+    color: #ff69b4;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 5px #ff69b4, 0 0 10px #ff69b4, 0 0 15px #ff69b4;
+  }
+  50% {
+    color: #ff1493;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 5px #ff1493, 0 0 10px #ff1493, 0 0 15px #ff1493;
+  }
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 40px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 100;
+  font-size: 15.0rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.play-button:hover {
+  background-color: transparent;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-button:focus {
+  outline: none;
+}
+
+.scrapbook-button, .letter-button {
+  position: absolute;
+  width: 300px; /* Set a fixed width */
+  height: 60px; /* Set a fixed height */
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 100;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scrapbook-button:hover, .letter-button:hover {
+  background-color: #ff1493;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+  transform: translateX(-50%) scale(1.1); /* Ensure it stays centered while scaling */
+}
+
+.scrapbook-button:focus, .letter-button:focus {
+  outline: none;
+}
+
+.scrapbook-button {
+  top: 70%;
+}
+
+.letter-button {
+  top: 80%;
+}
+
+/* Scrapbook section */
+.scrapbook-section {
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.scrapbook {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #333;
+  user-select: none;
+  cursor: pointer;
+}
+
+.page:nth-child(1) {
+  background-color: #ffefd5;
+  transform: rotateY(0deg);
+}
+
+.page:nth-child(2) {
+  background-color: #ffe4e1;
+  transform: rotateY(-180deg);
+}
+
+.scrapbook:hover .page:nth-child(1) {
+  transform: rotateY(-180deg);
+}
+
+.scrapbook:hover .page:nth-child(2) {
+  transform: rotateY(0deg);
+}
